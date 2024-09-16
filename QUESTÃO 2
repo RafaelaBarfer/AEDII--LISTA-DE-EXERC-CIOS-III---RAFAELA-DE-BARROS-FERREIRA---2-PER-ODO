@@ -2,10 +2,10 @@
 
 int main (){
 	
-int i,j,temp;
+int i,j,temp,parar;
 int array [8];
 
-printf ("Insira 8 numeros para ordena-los em ordem decrescente: \n");
+printf ("Insira 8 numeros para ordena-los em ordem crescente: \n");
 
 for (i=0;i<8;i++){
 	printf ("Numero %d: ", i+ 1);
@@ -13,22 +13,28 @@ for (i=0;i<8;i++){
 }	
 	
 for (i=0;i<8-1;i++){
-
+	
+	parar = 0;
 	
 	for (j=0;j<8-i-1;j++){
-		if (array [j]< array[j+1]){
+		if (array [j]> array[j+1]){
 			temp = array [j];
 			array[j]=array [j+1];
 			array [j+1]= temp; 
 			
-
+			parar = 1;
 		}
 	}
+	
+	if (parar == 0){
+		break;
+	}
 }	
-	printf ("Array em ordem decrescente: ");
+	printf ("Array completo e ordenado: ");
 	for (i=0;i<8;i++){
 		printf ("%d ",array [i]);
 	}
 	printf ("\n");
 	return 0;
 }
+
